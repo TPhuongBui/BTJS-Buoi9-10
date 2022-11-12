@@ -141,8 +141,11 @@
 									</th>
 									<th>Họ và tên</th>
 									<th>Email</th>
+									<th>Mật khẩu</th>
 									<th>Ngày làm</th>
-									<th>Chức vụ</th>									
+									<th>Chức vụ</th>
+									<th>Lương cơ bản</th>
+									<th>Giờ làm</th>									
 									<th>Tổng lương</th>
 									<th>Xếp loại</th>
 									<th><em class="fa fa-cog"></em></th>
@@ -264,9 +267,9 @@
 								</div>
 								<select class="form-control" id="chucvu">
 									<option>Chọn chức vụ</option>
-									<option>Sếp</option>
-									<option>Trưởng phòng</option>
-									<option>Nhân viên</option>
+									<option value="Sếp">Sếp</option>
+									<option value="Trưởng Phòng">Trưởng phòng</option>
+									<option value="Nhân Viên">Nhân viên</option>
 								</select>
 							</div>
 
@@ -288,7 +291,7 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer" id="modal-footer">
-					<button id="btnThemNV" type="button" class="btn btn-success">Thêm người dùng</button>
+					<button id="btnThemNV" onclick="addEmploy()" type="button" class="btn btn-success">Thêm người dùng</button>
 					<button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
 					<button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
 				</div>
