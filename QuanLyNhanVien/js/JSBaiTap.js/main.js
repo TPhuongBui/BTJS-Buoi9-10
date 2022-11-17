@@ -106,7 +106,7 @@ function hienThiTable(listEmploy) {
             <td>${nv.totalSalary}</td>
             <td>${nv.typeEmployee}</td>
             <td>
-            <button class="btn btn-danger" onclick="xoaSinhVien('${nv.account}')">Xóa</button>
+            <button class="btn btn-danger" onclick="xoaNhanVien('${nv.account}')">Xóa</button>
 
             <button class="btn btn-success" onclick="xemChiTiet('${nv.account}')">Xem</button>
         </td>
@@ -116,4 +116,57 @@ function hienThiTable(listEmploy) {
     getELE("tableDanhSach").innerHTML = content;
 }
 
+
+function xoaNhanVien(maNVXoa){
+    console.log(maNVXoa);
+    dsnv.xoaNV(maNVXoa);
+    setLocalStorage();
+    getLocalStorage();
+}
+
+function xemChiTiet(maNVXem) {
+    var vitri = dsnv.timViTri(maNVXem);
+    if (vitri != -1) {
+        // tìm thấy
+        console.log(dsnv.mangNV[vitri]);
+        getELE("tknv").value = dsnv.mangNV[vitri].account;
+        getELE("tknv").disabled = true;
+        getELE("name").value = dsnv.mangNV[vitri].fullname;
+        getELE("email").value = dsnv.mangNV[vitri].email;
+        getELE("password").value = dsnv.mangNV[vitri].password;
+        getELE("datepicker").value = dsnv.mangNV[vitri].workday;
+        getELE("luongCB").value = dsnv.mangNV[vitri].salary;
+        getELE("chucvu").value = dsnv.mangNV[vitri].position;
+        getELE("gioLam").value = dsnv.mangNV[vitri].workTime;
+       
+    }
+}
+
+function capNhatNhanVien() {
+    // const validation = new Validation();
+    var account = getELE("tknv").value;
+    var fullname = getELE("name").value;
+    var email = getELE("email").value;
+    var password = getELE("password").value;
+    var workday = getELE("datepicker").value;
+    var salary = getELE("luongCB").value;
+    var position = getELE("chucvu").value;
+    var workTime = getELE("gioLam").value;
+
+    console.log(account, fullname, email, password, workday, salary, position, workTime);
+    var nvCapNhat = new NhanVien(account, fullname, email, password, workday, Number(salary), position, Number(workTime));
+
+    // nvCapNhat.tinhTongLuong();
+    // nvCapNhat.xepLoaiNhanVien();
+
+    console.log(nvCapNhat);
+    dsnv.capNhatNV(nvCapNhat);
+    setLocalStorage();
+    getLocalStorage();
+}
+
+function resetForm() {
+    getELE("formQLNV").reset();
+    getELE("tknv").disabled = true;
+}
 

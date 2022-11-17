@@ -104,7 +104,7 @@
 			</nav>
 
 
-			<div class="container">
+			<div>
 				<div class="card text-center">
 					<!-- Header -->
 					<div class="card-header myCardHeader">
@@ -116,6 +116,7 @@
 								<button class="btn btn-primary" id="btnThem" data-toggle="modal"
 									data-target="#myModal">Thêm nhân viên</button>
 							</div>
+
 						</div>
 					</div>
 
@@ -190,7 +191,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 
-					<form role="form">
+					<form role="form" id="formQLNV">
 
 						<div class="form-group">
 							<div class="input-group">
@@ -292,7 +293,8 @@
 				<!-- Modal footer -->
 				<div class="modal-footer" id="modal-footer">
 					<button id="btnThemNV" onclick="addEmploy()" type="button" class="btn btn-success">Thêm người dùng</button>
-					<button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
+					<button id="btnCapNhat" onclick="capNhatNhanVien()" type="button" class="btn btn-success">Cập nhật</button>
+					<button id="btnCapNhat" onclick="resetForm()" type="button" class="btn btn-success">Reset</button>
 					<button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
 				</div>
 
