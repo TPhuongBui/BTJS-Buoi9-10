@@ -170,3 +170,12 @@ function resetForm() {
     getELE("tknv").disabled = true;
 }
 
+function timKiemLoaiNV(){
+    var tuKhoaXepLoai = getELE("searchName").value;
+    console.log(tuKhoaXepLoai);
+    var mangKQ = dsnv.timXLNV(tuKhoaXepLoai);
+    hienThiTable(mangKQ);
+}
+
+// getELE("btnTimNV").onclick = timKiemLoaiNV;
+getELE("searchName").onkeyup = timKiemLoaiNV;

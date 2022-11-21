@@ -35,7 +35,28 @@ function DanhSachNhanVien() {
         }
     }
     
+}
 
+DanhSachNhanVien.prototype.timXLNV = function(keySearch){
+    var mangKetQua = [];
+    // Bước 1: chuyển từ khóa tìm kiếm sang kiểu chữ thường, xóa khoảng trắng(replace(/\s/g,"")
+    var tuKhoa = keySearch.toLowerCase().replace(/\s/g,"");
+    console.log(tuKhoa);
 
+    this.mangNV.map(function(nv){
+    // Bước 2: chuyển tên sv sang kiểu chữ thường(toLowerCase), xóa khoảng trắng(replace(/\s/g,"")
 
+        var loaiNV = nv.typeEmployee.toLowerCase().replace(/\s/g,"");
+        console.log(loaiNV);
+
+        // Bước 3: so sánh tên sv có chứa từ tìm kiếm không
+        var viTriTuKhoa = loaiNV.indexOf(tuKhoa);
+        console.log(viTriTuKhoa);
+        if(viTriTuKhoa > -1){
+             //tìm thấy
+             mangKetQua.push(nv);
+        }
+    })
+
+    return mangKetQua;
 }
